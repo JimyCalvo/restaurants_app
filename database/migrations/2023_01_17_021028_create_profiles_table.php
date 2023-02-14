@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('avatar')->default('https://cdn-icons-png.flaticon.com/512/149/149071.png');
             $table->string('name')->nullable();
             $table->string('last_name')->nullable();
             $table->string('address')->nullable();

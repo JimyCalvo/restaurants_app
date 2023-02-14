@@ -38,22 +38,24 @@ class ProfileController extends Controller
         $profile->address=$request->input('address');
         $profile->movil=$request->input('movil');
         $profile->last_name=$request->input('last_name');
-        
+        $id=$profile->id;
+        $direction='StarRestaurants/users/user_'.$id;
         if(isset($request['avatar'])){
-            $aux = $profile->avatar;
-                $result = str_replace(array(".jpg", ".png", ".gif","https://res.cloudinary.com/dwtkvizrm/image/upload/"), '', $aux);
-                $res2 = substr($result, 0, 12);
-                $res3 = str_replace($res2, '', $result);
-                Cloudinary::destroy($res3);
-            
-            
-            $filename=time().".".$request['avatar']->extension();
-            $foto = $request->file('avatar');
-            $obj = Cloudinary::upload($foto->getRealPath(),['folder'=>'avatar']);
+            $image = $request->file('avatar');
+            $obj = Cloudinary::upload($image->getRealPath(),['folder'=>$direction]);
             $url = $obj -> getSecurePath();
-            $profile->avatar=$url;
+            $imagenID = $obj -> getPublicID();
+            if(isset($profile-> image->public_id))
+            {
+                Cloudinary::destroy($profile-> image->public_id);
+                $profile->image()->update(['url'=>$url,'public_id'=>$imagenID]);
+            }else{
+                $profile->image()->create(['url'=>$url,'public_id'=>$imagenID]);
+            }
+
+
         }
-        // $profile->avatar=$request->input('avatar');
+
         $user=User::findOrFail(auth()->user()->id);
         $user->email=$request->input('email');
         $user->name=$request->input('name');

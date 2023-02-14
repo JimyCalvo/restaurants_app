@@ -9,6 +9,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\RestauranteVisitantesController;
 use App\Http\Controllers\PlatoController;
 use App\Http\Controllers\CategoriaController;
+use App\Http\Controllers\RestaurantController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,11 +49,12 @@ Route::resource('categorias', CategoriaController::class,[
 Route::get('/nav', function () {
     return view('welcome');
 });
- Route::view('/','pages.home') ->name('home');
+Route::view('/','pages.home') ->name('inicio');
+Route::view('/home','pages.home') ->name('home');
  Route::get('/contact',[ContactController::class,'index'])->name('contact');
  Route::post('/contact',[ContactController::class,'store'])->name('contact.store');
  Route::view('/about','pages.about') ->name('about');
- Route::view('/restaurants','pages.restaurants') ->name('restaurants');
+ //Route::view('/restaurants2','pages.restaurants') ->name('restaurants');
  Route::view('/search','pages.search') ->name('search');
  Route::view('/places', 'pages.places')->name('places');
 //  Route::view('/categories', 'pages.category')->name('categorias');
@@ -83,3 +85,5 @@ Route::get('/profile', [ProfileController::class,'show'])->name('profile');
 Route::get('/profile/setting', [ProfileController::class,'edit'])->name('setting');
 Route::patch('/profile', [ProfileController::class,'update'])->name('profile.update');
 
+//--------------------------Pruebas---------------------------------
+Route::resource('restaurants',RestaurantController::class)->name('index','restaurants');

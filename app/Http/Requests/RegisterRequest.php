@@ -31,8 +31,6 @@ class RegisterRequest extends FormRequest
             'password_confirmation'=>'required|same:password',
             'birthday'=>'nullable',
             'type_user'=>'required',
-
-
         ];
     }
 }

@@ -9,7 +9,7 @@
                <div class="col-12 col-md-3 text-center">
                   <h5></h5>
                      <img class="rounded-circle bg-dark" 
-                     src="{{$profile->avatar ?? 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}} " alt="Foto de Perfil" width="100px">
+                     src="{{$profile->image->url ?? 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}} " alt="Foto de Perfil" width="100px">
                      <div>
                         <br>
                         <h5><b class="text-uppercase">{{auth()->user()->username}}</b></h5>

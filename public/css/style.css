@@ -3,8 +3,8 @@
 :root {
     --header-height: 3rem;
     --nav-width: 68px;
-    --first-color: #ec4909;
-    --first-color-hover:#eb7749;
+    --first-color: #181717;
+    --first-color-hover:#d54810;
     --first-color-light: #dbd4d4;
     --dark-color: #020202;
     --white-color: #ffffff;
@@ -12,9 +12,10 @@
     --normal-font-size: 1rem;
     --z-fixed: 100;
     color-scheme: light dark;
-    -supported-color-schemes: light dark;
+    --supported-color-schemes: light dark;
+    --footer-height:5rem;
 }
-@media (prefers-color-scheme:dark) {
+/* @media (prefers-color-scheme:dark) {
     :root {
         --first-color: #20201f;
         --first-color-hover: #ec4909;
@@ -48,7 +49,7 @@
     .card{
         background-color: var(--dark-color-b);
     }
-}
+} */
 
 *,
 ::before,
@@ -108,11 +109,12 @@ a {
     top: 0;
     left: -30%;
     width: var(--nav-width);
-    height: 100vh;
+    height:100vh;
     background-color: var(--first-color);
     padding: .5rem 1rem 0 0;
     transition: .5s;
-    z-index: var(--z-fixed)
+    z-index: var(--z-fixed);
+    
 }
 
 .nav {

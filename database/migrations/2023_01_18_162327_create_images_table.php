@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        //
-
-        Schema::create('categorias', function (Blueprint $table) {
-
-            $table->engine="InnoDB";
-            $table->bigIncrements('id');
-            $table->string('nombre');
+        Schema::create('images', function (Blueprint $table) {
+            $table->string('url')->default('https://cdn-icons-png.flaticon.com/512/149/149071.png');
+            $table->string('public_id')->nullable();
+            $table->unsignedBigInteger('imageable_id');
+            $table->string('imageable_type');
+            $table->primary(['imageable_id','imageable_type']);
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('images');
     }
 };

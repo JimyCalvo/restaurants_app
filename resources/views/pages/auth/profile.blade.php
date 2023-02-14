@@ -9,9 +9,15 @@
             <div class="row">
                <div class="col-12 col-md-3 text-center">
                   <h5></h5>
-                     <img class="rounded-circle bg-dark" 
-                     src="{{$profile->avatar ?? 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}}"
-                     alt="Foto de Perfil" width="150px">
+                  <div class="container-fluid d-flex d-flex justify-content-center">
+                     <div class="img-thumbnail" id="preview" style="width:180px; height: 180px; ">
+                        <img 
+                        src="{{$profile->image->url ?? 'https://cdn-icons-png.flaticon.com/512/149/149071.png'}}"
+                        alt="Fotode perfil" style="width:170px; height: 170px;" id="image0">
+                     </div>
+                  </div>
+              
+
                      <div>
                         <br>
                         <h5><b class="text-uppercase">{{auth()->user()->username}}</b></h5>
@@ -31,8 +37,8 @@
                      <input type="text" placeholder="Teléfono" name="movil" class="form-control mb-3"value="{{$profile->movil}}">
                      <label>Foto de Perfil:</label>
                      <div class="input-group mb-3">
-                           <input type="file" name="avatar" accept="image/png, image/gif, image/jpeg" class="form-control"/>
-                           <button class="btn btn-outline-success" type="button" >Subir</button>
+                           <input type="file" name="avatar" accept="image/png, image/gif, image/jpeg" class="form-control " id="image"/>
+                           <button class="btn btn-outline-success" type="button" id="image">Subir</button>
                      </div>
                      
                      <div class="row ">
@@ -49,6 +55,7 @@
             <div class="text-center">
                 <input type="submit" value="Guardar" class="btn btn-success">
             </div>
+            <script src="/js/preview.js"></script>
          </form>
       </div>
 

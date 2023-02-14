@@ -14,11 +14,12 @@
         <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
         {{-- ------------------------------------------------------------------ --}}
         <link rel="stylesheet" href="/css/style.css">
-        <link rel="stylesheet" href="/css/style2.css">
+        {{-- <link rel="stylesheet" href="/css/style2.css"> --}}
         <meta name="color-scheme" content="light dark">
         <meta name="supported-color-schemes" content="light dark">
         <script src="/js/nav.js"></script>
-        <script src="/js/darkmode.js"></script>
+
+ 
         {{-- ------------------------------------------------------------------ --}}
         <title> Star-Restaurans {{$title ?? ''}}</title>
     </head>
@@ -58,13 +59,15 @@
     
         </header>
         <x-partials.other.navbar/>
-        <div class="height-100">
+        <div class="height-100 d-flex flex-column ">
             <main>
                 {{$slot}}
             </main>
+            <img src="" alt="">
             <footer>
                 <x-partials.other.footer/>
             </footer>
         </div>
+        
     </body>
 </html>

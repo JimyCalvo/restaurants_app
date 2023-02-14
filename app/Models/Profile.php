@@ -9,7 +9,6 @@ class Profile extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'avatar',
         'name',
         'last_name',
         'address',
@@ -21,7 +20,9 @@ class Profile extends Model
     {
         return $this->belongsTo(User::class);
     }
-    protected $casts = [
-        'birthday'=>'date',
-    ];
+
+    public function image(){
+        return $this->morphOne(Image::class,'imageable');
+    }
+
 }

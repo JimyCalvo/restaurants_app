@@ -24,13 +24,11 @@ class ProfileRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar'=>'nullable',
             'name'=>'nullable',
             'last_name'=>'nullable',
             'address'=>'nullable',
             'movil'=>'nullable',
             'user_id'=>'required',
-        
         ];
     }
 }

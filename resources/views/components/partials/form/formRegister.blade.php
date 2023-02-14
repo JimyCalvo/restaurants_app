@@ -8,7 +8,7 @@
     <input type="password" placeholder="Confirma Contraseña" name="password_confirmation" class="form-control mb-2">
     <div class="row container">
         <div class="col-3 text-end" >
-            <label for="datenac"><b>Fecha de Nacimiento:</b></label>
+            <label for="datenac" style="color: white"><b>Fecha de Nacimiento:</b></label>
         </div>
         <div class="col-9 form-switch text-start ps-5  pe-5">
             <input  class="form-control" type="date" name="birthday" id="datenac" max="{{date('Y-m-d',strtotime(date('Y-m-d').'-3 year'))}}">
@@ -17,7 +17,7 @@
     <div class="row container">
         <div class="col-2 text-end" >
         
-            <label for="is_enabled"><b>Tipo de Usuario:  </b></label>
+            <label for="is_enabled" style="color: white"><b>Tipo de Usuario:  </b></label>
         </div>
         <div class="col-10 form-switch text-start ps-5  pe-5">
             <select name="type_user" class="form-select form-select-sm" aria-label=".form-select-sm example">
